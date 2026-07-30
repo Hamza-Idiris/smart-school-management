@@ -13,6 +13,8 @@ import {
   UserRound,
   ClipboardCheck,
   Clock,
+  NotebookPen,
+  Award,
 } from 'lucide-react'
 import { useAuthStore } from '@/stores/authStore'
 import { useTheme } from '@/components/theme-provider'
@@ -25,6 +27,8 @@ const navByRole: Record<Role, { to: string; label: string; icon: typeof Users }[
   super_admin: [
     { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
     { to: '/app/attendance', label: 'Attendance', icon: ClipboardCheck },
+    { to: '/app/gradebooks', label: 'Gradebooks', icon: NotebookPen },
+    { to: '/app/results', label: 'Results', icon: Award },
     { to: '/app/students', label: 'Students', icon: UserRound },
     { to: '/app/classes', label: 'Classes', icon: School },
     { to: '/app/subjects', label: 'Subjects', icon: BookOpen },
@@ -39,6 +43,7 @@ const navByRole: Record<Role, { to: string; label: string; icon: typeof Users }[
   ],
   teacher: [
     { to: '/app', label: 'Check-in', icon: Clock },
+    { to: '/app/gradebooks', label: 'Gradebooks', icon: NotebookPen },
     { to: '/app/students', label: 'Roster', icon: UserRound },
   ],
   cashier: [

@@ -16,6 +16,9 @@ import { AssignmentsPage } from '@/pages/AssignmentsPage'
 import { StudentsPage } from '@/pages/StudentsPage'
 import { StudentPortalPage } from '@/pages/StudentPortalPage'
 import { AttendancePage } from '@/pages/AttendancePage'
+import { GradebooksPage } from '@/pages/GradebooksPage'
+import { GradebookDetailPage } from '@/pages/GradebookDetailPage'
+import { ReleaseResultsPage } from '@/pages/ReleaseResultsPage'
 
 const queryClient = new QueryClient()
 
@@ -49,7 +52,12 @@ export default function App() {
                 <Route element={<ProtectedRoute roles={['super_admin', 'staff']} />}>
                   <Route path="attendance" element={<AttendancePage />} />
                 </Route>
+                <Route element={<ProtectedRoute roles={['super_admin', 'teacher']} />}>
+                  <Route path="gradebooks" element={<GradebooksPage />} />
+                  <Route path="gradebooks/:id" element={<GradebookDetailPage />} />
+                </Route>
                 <Route element={<ProtectedRoute roles={['super_admin']} />}>
+                  <Route path="results" element={<ReleaseResultsPage />} />
                   <Route path="classes" element={<ClassesPage />} />
                   <Route path="subjects" element={<SubjectsPage />} />
                   <Route path="assignments" element={<AssignmentsPage />} />

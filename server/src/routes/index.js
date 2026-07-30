@@ -9,6 +9,7 @@ import studentRoutes from './studentRoutes.js';
 import attendanceRoutes from './attendanceRoutes.js';
 import checkInRoutes from './checkInRoutes.js';
 import dashboardRoutes from './dashboardRoutes.js';
+import gradebookRoutes from './gradebookRoutes.js';
 
 const router = Router();
 
@@ -26,5 +27,6 @@ router.use('/students', studentRoutes);
 router.use('/attendance', attendanceRoutes);
 router.use('/check-ins', checkInRoutes);
 router.use('/dashboard', dashboardRoutes);
+router.use('/gradebooks', gradebookRoutes);
 
 export default router;
