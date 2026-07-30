@@ -37,11 +37,21 @@ interface ReportSubject {
   remark?: string
 }
 
+interface FeeInvoice {
+  id: string
+  month: string
+  amountDue: number
+  amountPaid: number
+  balance: number
+  status: string
+}
+
 export function StudentPortalPage() {
   const [profile, setProfile] = useState<StudentProfile | null>(null)
   const [attendance, setAttendance] = useState<AttendanceRow[]>([])
   const [subjects, setSubjects] = useState<ReportSubject[]>([])
   const [average, setAverage] = useState<number | null>(null)
+  const [fees, setFees] = useState<{ outstanding: number; invoices: FeeInvoice[] } | null>(null)
   const [downloading, setDownloading] = useState(false)
 
   useEffect(() => {
@@ -49,12 +59,14 @@ export function StudentPortalPage() {
       api.get('/students/me'),
       api.get('/attendance/me'),
       api.get('/gradebooks/me/report-card'),
+      api.get('/finance/me'),
     ])
-      .then(([p, a, r]) => {
+      .then(([p, a, r, f]) => {
         setProfile(p.data.data)
         setAttendance(a.data.data)
         setSubjects(r.data.data.subjects)
         setAverage(r.data.data.averagePercent)
+        setFees(f.data.data)
       })
       .catch(() => toast.error('Could not load student portal'))
   }, [])
@@ -109,6 +121,48 @@ export function StudentPortalPage() {
             <p className="text-muted-foreground">Enrollment</p>
             <p className="font-medium capitalize">{profile.status}</p>
           </div>
+        </CardContent>
+      </Card>
+
+      <Card>
+        <CardHeader>
+          <CardTitle>Fees</CardTitle>
+          <CardDescription>
+            {fees
+              ? fees.outstanding > 0
+                ? `Outstanding $${fees.outstanding.toLocaleString()}`
+                : 'No outstanding balance'
+              : 'Fee summary'}
+          </CardDescription>
+        </CardHeader>
+        <CardContent className="overflow-x-auto">
+          <table className="w-full min-w-[480px] text-left text-sm">
+            <thead className="border-b border-border text-muted-foreground">
+              <tr>
+                <th className="pb-2 font-medium">Month</th>
+                <th className="pb-2 font-medium">Due</th>
+                <th className="pb-2 font-medium">Paid</th>
+                <th className="pb-2 font-medium">Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {(fees?.invoices || []).map((inv) => (
+                <tr key={inv.id} className="border-b border-border/70">
+                  <td className="py-2">{inv.month}</td>
+                  <td className="py-2 tabular-nums">${inv.amountDue}</td>
+                  <td className="py-2 tabular-nums">${inv.amountPaid}</td>
+                  <td className="py-2 capitalize">{inv.status}</td>
+                </tr>
+              ))}
+              {(!fees || fees.invoices.length === 0) && (
+                <tr>
+                  <td colSpan={4} className="py-4 text-muted-foreground">
+                    No fee invoices yet
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
         </CardContent>
       </Card>
 

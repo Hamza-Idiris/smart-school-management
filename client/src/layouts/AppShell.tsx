@@ -15,6 +15,7 @@ import {
   Clock,
   NotebookPen,
   Award,
+  Wallet,
 } from 'lucide-react'
 import { useAuthStore } from '@/stores/authStore'
 import { useTheme } from '@/components/theme-provider'
@@ -29,6 +30,7 @@ const navByRole: Record<Role, { to: string; label: string; icon: typeof Users }[
     { to: '/app/attendance', label: 'Attendance', icon: ClipboardCheck },
     { to: '/app/gradebooks', label: 'Gradebooks', icon: NotebookPen },
     { to: '/app/results', label: 'Results', icon: Award },
+    { to: '/app/finance', label: 'Finance', icon: Wallet },
     { to: '/app/students', label: 'Students', icon: UserRound },
     { to: '/app/classes', label: 'Classes', icon: School },
     { to: '/app/subjects', label: 'Subjects', icon: BookOpen },
@@ -48,6 +50,7 @@ const navByRole: Record<Role, { to: string; label: string; icon: typeof Users }[
   ],
   cashier: [
     { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app/finance', label: 'Finance', icon: Wallet },
     { to: '/app/students', label: 'Students', icon: UserRound },
   ],
   student: [{ to: '/app', label: 'Portal', icon: LayoutDashboard }],

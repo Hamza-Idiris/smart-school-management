@@ -37,7 +37,7 @@ const roleCopy: Record<string, { title: string; body: string }> = {
   },
   cashier: {
     title: 'Finance desk',
-    body: 'Fee collection and debtor tracking arrive in Phase 5.',
+    body: 'Generate is admin-only. Collect fees, tick invoices settled, and review debtors under Finance.',
   },
 }
 

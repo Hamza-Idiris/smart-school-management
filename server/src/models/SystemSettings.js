@@ -6,6 +6,7 @@ const settingsSchema = new mongoose.Schema(
     teacherCutoffTime: { type: String, default: '07:30' },
     currency: { type: String, default: 'USD' },
     academicYear: { type: String, default: '2025-2026' },
+    monthlyTuition: { type: Number, default: 100, min: 0 },
   },
   { timestamps: true }
 );

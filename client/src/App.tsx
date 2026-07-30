@@ -19,6 +19,7 @@ import { AttendancePage } from '@/pages/AttendancePage'
 import { GradebooksPage } from '@/pages/GradebooksPage'
 import { GradebookDetailPage } from '@/pages/GradebookDetailPage'
 import { ReleaseResultsPage } from '@/pages/ReleaseResultsPage'
+import { FinancePage } from '@/pages/FinancePage'
 
 const queryClient = new QueryClient()
 
@@ -55,6 +56,9 @@ export default function App() {
                 <Route element={<ProtectedRoute roles={['super_admin', 'teacher']} />}>
                   <Route path="gradebooks" element={<GradebooksPage />} />
                   <Route path="gradebooks/:id" element={<GradebookDetailPage />} />
+                </Route>
+                <Route element={<ProtectedRoute roles={['super_admin', 'cashier']} />}>
+                  <Route path="finance" element={<FinancePage />} />
                 </Route>
                 <Route element={<ProtectedRoute roles={['super_admin']} />}>
                   <Route path="results" element={<ReleaseResultsPage />} />

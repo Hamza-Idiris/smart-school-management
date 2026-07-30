@@ -54,7 +54,8 @@ npm run dev:client
 | 2 Students, classes, subjects, assignments | Done |
 | 3 Dual-slot attendance + teacher check-in + KPIs | Done |
 | 4 Gradebook lock/release | Done |
-| 5 Finance | Next |
+| 5 Finance | Done |
+| 6 Reports & polish | Next |
 | 5 Finance | Planned |
 | 6 Reports & polish | Planned |
 

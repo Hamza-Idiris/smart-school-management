@@ -12,6 +12,7 @@ interface Settings {
   teacherCutoffTime: string
   currency: string
   academicYear: string
+  monthlyTuition: number
 }
 
 export function SettingsPage() {
@@ -51,7 +52,7 @@ export function SettingsPage() {
     <div className="mx-auto max-w-xl space-y-6">
       <div>
         <h1 className="font-display text-3xl tracking-tight">Settings</h1>
-        <p className="mt-1 text-muted-foreground">School profile and punctuality cutoff</p>
+        <p className="mt-1 text-muted-foreground">School profile, fees, and punctuality cutoff</p>
       </div>
 
       <Card>
@@ -88,6 +89,18 @@ export function SettingsPage() {
               <Input
                 value={settings.currency}
                 onChange={(e) => setSettings({ ...settings, currency: e.target.value })}
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Monthly tuition</Label>
+              <Input
+                type="number"
+                min={0}
+                step="0.01"
+                value={settings.monthlyTuition ?? 100}
+                onChange={(e) =>
+                  setSettings({ ...settings, monthlyTuition: Number(e.target.value) })
+                }
               />
             </div>
             <Button type="submit" disabled={saving}>
