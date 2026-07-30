@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", Georgia, serif;
+
+  --color-background: #f7f6f3;
+  --color-foreground: #1a1c1a;
+  --color-card: #ffffff;
+  --color-card-foreground: #1a1c1a;
+  --color-muted: #eceae4;
+  --color-muted-foreground: #5f6360;
+  --color-border: #ddd9d0;
+  --color-primary: #1f6b4a;
+  --color-primary-foreground: #f5faf7;
+  --color-accent: #e8f2ec;
+  --color-accent-foreground: #1f6b4a;
+  --color-destructive: #b42318;
+  --color-ring: #1f6b4a;
+  --color-sidebar: #f0eee8;
+  --color-sidebar-foreground: #1a1c1a;
+}
+
+.dark {
+  --color-background: #121412;
+  --color-foreground: #eceeea;
+  --color-card: #1a1d1a;
+  --color-card-foreground: #eceeea;
+  --color-muted: #242824;
+  --color-muted-foreground: #a3aaa4;
+  --color-border: #2e332e;
+  --color-primary: #3d9b6e;
+  --color-primary-foreground: #06140d;
+  --color-accent: #1e2a22;
+  --color-accent-foreground: #9fd4b5;
+  --color-destructive: #f97066;
+  --color-ring: #3d9b6e;
+  --color-sidebar: #161916;
+  --color-sidebar-foreground: #eceeea;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    @apply antialiased;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans min-h-screen;
+    background-image:
+      radial-gradient(ellipse 80% 50% at 0% -20%, color-mix(in oklab, var(--color-primary) 12%, transparent), transparent),
+      radial-gradient(ellipse 60% 40% at 100% 0%, color-mix(in oklab, var(--color-primary) 8%, transparent), transparent);
+    background-attachment: fixed;
+  }
+}
