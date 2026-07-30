@@ -15,6 +15,7 @@ import { SubjectsPage } from '@/pages/SubjectsPage'
 import { AssignmentsPage } from '@/pages/AssignmentsPage'
 import { StudentsPage } from '@/pages/StudentsPage'
 import { StudentPortalPage } from '@/pages/StudentPortalPage'
+import { AttendancePage } from '@/pages/AttendancePage'
 
 const queryClient = new QueryClient()
 
@@ -44,6 +45,9 @@ export default function App() {
                   }
                 >
                   <Route path="students" element={<StudentsPage />} />
+                </Route>
+                <Route element={<ProtectedRoute roles={['super_admin', 'staff']} />}>
+                  <Route path="attendance" element={<AttendancePage />} />
                 </Route>
                 <Route element={<ProtectedRoute roles={['super_admin']} />}>
                   <Route path="classes" element={<ClassesPage />} />

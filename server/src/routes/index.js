@@ -6,6 +6,9 @@ import classRoutes from './classRoutes.js';
 import subjectRoutes from './subjectRoutes.js';
 import assignmentRoutes from './assignmentRoutes.js';
 import studentRoutes from './studentRoutes.js';
+import attendanceRoutes from './attendanceRoutes.js';
+import checkInRoutes from './checkInRoutes.js';
+import dashboardRoutes from './dashboardRoutes.js';
 
 const router = Router();
 
@@ -20,5 +23,8 @@ router.use('/classes', classRoutes);
 router.use('/subjects', subjectRoutes);
 router.use('/assignments', assignmentRoutes);
 router.use('/students', studentRoutes);
+router.use('/attendance', attendanceRoutes);
+router.use('/check-ins', checkInRoutes);
+router.use('/dashboard', dashboardRoutes);
 
 export default router;

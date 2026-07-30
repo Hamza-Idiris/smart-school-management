@@ -52,8 +52,8 @@ npm run dev:client
 | 0 Foundation (monorepo, theme, Docker) | Done |
 | 1 Auth, users, settings | Done |
 | 2 Students, classes, subjects, assignments | Done |
-| 3 Dual-slot attendance + teacher check-in + KPIs | Next |
-| 4 Gradebook lock/release | Planned |
+| 3 Dual-slot attendance + teacher check-in + KPIs | Done |
+| 4 Gradebook lock/release | Next |
 | 5 Finance | Planned |
 | 6 Reports & polish | Planned |
 

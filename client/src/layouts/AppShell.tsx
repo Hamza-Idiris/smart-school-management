@@ -11,6 +11,8 @@ import {
   BookOpen,
   Link2,
   UserRound,
+  ClipboardCheck,
+  Clock,
 } from 'lucide-react'
 import { useAuthStore } from '@/stores/authStore'
 import { useTheme } from '@/components/theme-provider'
@@ -22,6 +24,7 @@ import type { Role } from '@/types/auth'
 const navByRole: Record<Role, { to: string; label: string; icon: typeof Users }[]> = {
   super_admin: [
     { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app/attendance', label: 'Attendance', icon: ClipboardCheck },
     { to: '/app/students', label: 'Students', icon: UserRound },
     { to: '/app/classes', label: 'Classes', icon: School },
     { to: '/app/subjects', label: 'Subjects', icon: BookOpen },
@@ -31,10 +34,11 @@ const navByRole: Record<Role, { to: string; label: string; icon: typeof Users }[
   ],
   staff: [
     { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app/attendance', label: 'Attendance', icon: ClipboardCheck },
     { to: '/app/students', label: 'Students', icon: UserRound },
   ],
   teacher: [
-    { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app', label: 'Check-in', icon: Clock },
     { to: '/app/students', label: 'Roster', icon: UserRound },
   ],
   cashier: [
