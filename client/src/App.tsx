@@ -20,6 +20,8 @@ import { GradebooksPage } from '@/pages/GradebooksPage'
 import { GradebookDetailPage } from '@/pages/GradebookDetailPage'
 import { ReleaseResultsPage } from '@/pages/ReleaseResultsPage'
 import { FinancePage } from '@/pages/FinancePage'
+import { ReportsPage } from '@/pages/ReportsPage'
+import { AuditPage } from '@/pages/AuditPage'
 
 const queryClient = new QueryClient()
 
@@ -59,8 +61,10 @@ export default function App() {
                 </Route>
                 <Route element={<ProtectedRoute roles={['super_admin', 'cashier']} />}>
                   <Route path="finance" element={<FinancePage />} />
+                  <Route path="reports" element={<ReportsPage />} />
                 </Route>
                 <Route element={<ProtectedRoute roles={['super_admin']} />}>
+                  <Route path="audit" element={<AuditPage />} />
                   <Route path="results" element={<ReleaseResultsPage />} />
                   <Route path="classes" element={<ClassesPage />} />
                   <Route path="subjects" element={<SubjectsPage />} />

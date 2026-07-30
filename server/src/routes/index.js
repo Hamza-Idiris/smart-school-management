@@ -11,6 +11,8 @@ import checkInRoutes from './checkInRoutes.js';
 import dashboardRoutes from './dashboardRoutes.js';
 import gradebookRoutes from './gradebookRoutes.js';
 import financeRoutes from './financeRoutes.js';
+import reportRoutes from './reportRoutes.js';
+import auditRoutes from './auditRoutes.js';
 
 const router = Router();
 
@@ -30,5 +32,7 @@ router.use('/check-ins', checkInRoutes);
 router.use('/dashboard', dashboardRoutes);
 router.use('/gradebooks', gradebookRoutes);
 router.use('/finance', financeRoutes);
+router.use('/reports', reportRoutes);
+router.use('/audit-logs', auditRoutes);
 
 export default router;
