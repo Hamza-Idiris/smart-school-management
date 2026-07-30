@@ -7,6 +7,10 @@ import {
   Moon,
   Sun,
   GraduationCap,
+  School,
+  BookOpen,
+  Link2,
+  UserRound,
 } from 'lucide-react'
 import { useAuthStore } from '@/stores/authStore'
 import { useTheme } from '@/components/theme-provider'
@@ -18,12 +22,25 @@ import type { Role } from '@/types/auth'
 const navByRole: Record<Role, { to: string; label: string; icon: typeof Users }[]> = {
   super_admin: [
     { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app/students', label: 'Students', icon: UserRound },
+    { to: '/app/classes', label: 'Classes', icon: School },
+    { to: '/app/subjects', label: 'Subjects', icon: BookOpen },
+    { to: '/app/assignments', label: 'Assignments', icon: Link2 },
     { to: '/app/users', label: 'Users', icon: Users },
     { to: '/app/settings', label: 'Settings', icon: Settings },
   ],
-  staff: [{ to: '/app', label: 'Dashboard', icon: LayoutDashboard }],
-  teacher: [{ to: '/app', label: 'Dashboard', icon: LayoutDashboard }],
-  cashier: [{ to: '/app', label: 'Dashboard', icon: LayoutDashboard }],
+  staff: [
+    { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app/students', label: 'Students', icon: UserRound },
+  ],
+  teacher: [
+    { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app/students', label: 'Roster', icon: UserRound },
+  ],
+  cashier: [
+    { to: '/app', label: 'Dashboard', icon: LayoutDashboard },
+    { to: '/app/students', label: 'Students', icon: UserRound },
+  ],
   student: [{ to: '/app', label: 'Portal', icon: LayoutDashboard }],
 }
 
